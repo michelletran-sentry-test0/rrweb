@@ -44,7 +44,7 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "build:all": "[[ -v GITHUB_TOKEN ]] && echo end",
+    "build:all": "if [[ -v GITHUB_TOKEN ]]; then echo end fi",
     "build:tarball": "yarn lerna run build:tarball",
     "test": "yarn run concurrently --success=all -r -m=1 'yarn workspaces-to-typescript-project-references --check' 'yarn turbo run test --concurrency=1 --continue'",
     "test:watch": "yarn turbo run test:watch",
